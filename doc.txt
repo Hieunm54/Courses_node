@@ -1,0 +1,20 @@
+*** Phần 1: getting started 
+I. HTTP protocol
+II. Server side rendering vs client side rendering
+    1. SSR: mã html được trả về từ server => nếu view page source thì sẽ thấy toàn bộ mã của trang 
+            - tốt cho sale, vì đoạn mã có sẵn content => đc các search-bot của gg tìm dễ hơn(các trang báo)
+            - luôn req lại từ đầu khi chuyển tab trong trang
+            - request đâuf sẽ nhanh hơn.
+
+    2. CSR: view page source => thẻ main trống, cùng vs file JS
+            - client sẽ đọc file JS, sau đó render ra page(bắt buộc phải bật JS nha)
+            - ko phải reload lại trang
+            - lần đầu req laau hơn, vì đọc thẻ main trống, sau đó mới apply code js 
+    
+    3. Express : 
+        + khởi tạo node project: npm init 
+        + nhớ thêm type: module ở packeage.json để chạy import ES6. 
+
+    4. nodemon và inspector 
+        + nodemon: lắng nghe sự thay đổi của file => reload app
+        + debug bằng node dev tool: mở ctrl+shift+i => tìm biểu tương node => đặt break point

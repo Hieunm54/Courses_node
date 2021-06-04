@@ -1,6 +1,6 @@
 *** Phần 1: getting started 
 
-    I. HTTP protocol
+I. HTTP protocol
     II. Server side rendering vs client side rendering
         1. SSR: mã html được trả về từ server => nếu view page source thì sẽ thấy toàn bộ mã của trang 
                 - tốt cho sale, vì đoạn mã có sẵn content => đc các search-bot của gg tìm dễ hơn(các trang báo)
@@ -26,9 +26,30 @@
 ----------------------------------------------------------------
 
 *** Phần 2L kiến thức cốt lõi 
-    I. template engine(handlebars or pub )
-        - viết file chữa mã html
-        - sau đó nhúng vào các route đêr render 
+        I. template engine(handlebars or pub )
+                - viết file chữa mã html
+                - sau đó nhúng vào các route đêr render 
 
-        - phần khung giống nhau trong các trang,còn nội dụng khác nhau
-        => tạo 1 template để dùng tái sử dụng 
+                - phần khung giống nhau trong các trang,còn nội dụng khác nhau
+                => tạo 1 template để dùng tái sử dụng 
+        
+        II. Static file vaf SCSS
+                1. static file : khi chúng ta muốn thêm ảnh, tập tin tĩnh để ng dùng có thể tải về
+                        + thêm folder public/img/<picture> trong src,
+                        + dùng app.use(express.static(<file>))
+                2. node-sass: thay vì viết 1 file css nghìn dòng => dùng sass đê code css và dễ quản lý hơn
+                    
+                    docs: https://viblo.asia/p/sass-va-scss-ban-chon-gi-part-1-gAm5yR1XKdb
+
+                        + từ file scss -> chuyển thành file css
+                        + vd: khai báo biến, code lồng nhau(nesting), chia nhỏ code(partial), mixin, function,..
+
+                        ** cách dungf: 
+                                - thường sử dugnj commandline để chuyển scss -> css
+                                - thêm script: "watch": "node-sass --watch <input> <output>" :viết code ở .sass, tự thêm sang css (theme --watch để tự động chạy khi file thay đổi)
+                                - thêm file _variable.scss để viết các biến, tận dụng code, (sử dụng ` @import 'variable' ` trong file scss: $red-color) 
+                                - nhớ link vào main.hbs nhá :)))
+                                - 
+
+
+    

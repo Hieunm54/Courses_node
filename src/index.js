@@ -2,10 +2,20 @@ import express from 'express';
 import path from 'path';
 import morgan from 'morgan';
 import exphbs from 'express-handlebars';
+
+
+// import route from './routes/index'
+// const route = require('./routes/index')
+import route from './routes/index.js';
+
+
+
 // dirname in ES6
 const __dirname = path.dirname(new URL(import.meta.url).pathname);
 
 const app = express();
+
+
 
 //HTTP logger middleware
 app.use(morgan('dev'));
@@ -14,20 +24,29 @@ app.use(morgan('dev'));
 // src/resource/public/assets
 app.use(express.static(path.join(__dirname, 'public')))
 
+
+
 //handlebars middleware
 app.engine('.hbs',exphbs({extname: '.hbs'}));
 app.set('view engine','.hbs');
 app.set('views', path.join(__dirname, 'resource/views'));
-console.log(__dirname);
+
 
 const port = 3000;
 
-// route
-app.get('/',(req,res) => res.render('home'));
+// route init 
+route(app)
 
-app.get('/sponsors',(req,res) =>{
-    res.render('sponsors');
-})
+
+// app.get('/',(req,res) => res.render('home'));
+
+// app.get('/news',(req,res) => res.render('news'));
+
+// app.get('/sponsors',(req,res) =>{
+//     res.render('sponsors');
+// })
+
+// app.get('/search',(req,res) => res.render('search'));
 
 
 app.listen(port,() =>console.log(`listening on port ${port}`));

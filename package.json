@@ -6,15 +6,18 @@
   "type": "module",
   "scripts": {
     "start": "nodemon --inspect src/index.js",
-    "beauty":"lint-staged",
     "watch": "node-sass --watch src/resource/scss/ --output src/public/css/",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   
   "lint-staged": {
-      "src/**/*.{js,json,scss}": "prettier --single-quote --trailing-comma all --tab-width 4 --write"
+    "src/**/*.{js,json,scss}": "prettier --single-quote --trailing-comma all --tab-width 4 --write"
   },
-
+  "husky":{
+    "hooks":{
+      "pre-commit":"lint-staged"
+    }
+  },
   
   "keywords": [
     "course",

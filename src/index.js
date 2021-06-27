@@ -10,7 +10,7 @@ import route from './routes/index.js';
 // dirname in ES6
 const __dirname = path.dirname(new URL(import.meta.url).pathname);
 
-const app = express();
+    const app = express();
 
 //HTTP logger middleware
 app.use(morgan('dev'));

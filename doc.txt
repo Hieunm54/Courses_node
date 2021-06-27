@@ -89,9 +89,9 @@ I. HTTP protocol
                 !!! Index trong database (quan trongj) https://viblo.asia/p/index-trong-database-la-gi-tai-sao-can-index-database-Az45bYDzlxY
         
         IV. Sử dungj prettier: sử dụng trong làm việc nhoms: yêu cầu các thành viên trong nhóm có cùng code format => thông nhất cách trình bày code các thành viên -> dễ đọc
-                1. prettier
-                2. lint-staged 
-                3. husky
+                1. prettier: <như trên>
+                2. lint-staged : ensure no errors go into your repository, execute when you commit (chỉ vs những file đc commit thôi)
+                3. husky: thực hiện 1 câu lệnh nào đó khi thực hiện git add, or commit, vv
 
 
         

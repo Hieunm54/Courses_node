@@ -1,15 +1,11 @@
-
-export default class NewsController{
-
+export default class NewsController {
     // [GET] /news
-    index(req, res){
+    index(req, res) {
         res.render('news');
     }
 
     // [GET] /news/detail
-    detail(req, res){
+    detail(req, res) {
         res.send('DETAIL NEWS PAGE');
     }
-
 }
-

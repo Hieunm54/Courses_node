@@ -6,9 +6,16 @@
   "type": "module",
   "scripts": {
     "start": "nodemon --inspect src/index.js",
+    "beauty":"lint-staged",
     "watch": "node-sass --watch src/resource/scss/ --output src/public/css/",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  
+  "lint-staged": {
+    "src/**/*.{js,json,scss}": "prettier --single-quote --trailing-comma all --tab-width 4 --write"
+  },
+
+  
   "keywords": [
     "course",
     "nodejs"
@@ -21,7 +28,11 @@
     "node-sass": "^6.0.0"
   },
   "devDependencies": {
+    "husky": "^6.0.0",
+    "lint-staged": "^11.0.0",
     "morgan": "^1.10.0",
-    "nodemon": "^2.0.7"
+    "nodemon": "^2.0.7",
+    "prettier": "^2.3.2"
   }
+  
 }

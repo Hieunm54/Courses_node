@@ -1,22 +1,20 @@
-
 // import express from 'express';
 
-class SiteController{
+class SiteController {
     //[GET] /
-    index(req,res){
+    index(req, res) {
         res.render('home');
     }
 
     //[GET] /sponsors
-    sponsors(req,res){
+    sponsors(req, res) {
         res.render('sponsors');
     }
 
     //[GET] /search
-    search(req,res){
+    search(req, res) {
         res.render('search');
     }
-
 }
 
 export default SiteController;

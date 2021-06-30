@@ -78,13 +78,16 @@ I. HTTP protocol
                 B3: tạo file index.js trong routes -> để viết tất cả các routes vào r sau đó export ra dùng (napj abc.route.js vao nha) !DÙNG USE. VD app.use('/',homeRouter)
 
                 !!! import thi nho them .js nha
-                link về require, module.export, export:s https://viblo.asia/p/nodejs-require-exports-and-moduleexports-djeZ18PQKWz
+                !!! chỉ dùng 2 kieeur:  +export - với name export -> khi import dùng {}
+                                        + export default: import ko cần {}
 
                 !!! sẽ có những trang ko thuộc 1 tài nguyên cụ thể -> cần nhét vào 1 file riêng vd: home, contact, sponsors 
         III. MongoDB 
                 - sau khi cài xong :))))))
                 - terminal -> mongod.
                 - mở mongo compass -> thao tác (nếu phải set lại connection string -> search gg :)) https://docs.mongodb.com/manual/reference/connection-string/)
+
+                !!! Nếu bật lại mongod  mà có lỗi -> có thể là do mongo chưa được tắt đúng -> sử dụng `sudo pkill mongo`.       
 
                 !!! Index trong database (quan trongj) https://viblo.asia/p/index-trong-database-la-gi-tai-sao-can-index-database-Az45bYDzlxY
         
@@ -93,5 +96,35 @@ I. HTTP protocol
                 2. lint-staged : ensure no errors go into your repository,(chỉ vs những file đc `git add` - staged file thôi)
                 3. husky: thực hiện 1 câu lệnh nào đó khi thực hiện git add, or commit, vv
 
+        V. Model 
+                1. Cài đặt mongoose: Object model
+                        + đứng giữa nodejs và mongoDB -> hỗ trợ nodejs thao tác vs mongo. 
+                        + vì là csdl không quan hệ (không cùng cấu trúc)-> Nếu cần có cần sự thống nhất : mongoose tạo 1 khung fomat cho các bản ghi 
 
+                2. Connect to DB: 
+                        + basic: tạo config/db/index.js: viết function connect (nhớ là có await -> dùng async và try-catch)
+                        + tạo kết nối ở file index chính 
+                        + tạo schema cho document 
+                        + Vào controller -> thực hiện đứng từ controller truy xusaats tới model (tham khảo tài liệu express: https://expressjs.com/en/4x/api.html : chọn request, response  )
+                3. Create model 
         
+        VI. Read from database (CRUD)
+                1. các middlerware cần có next 
+                        - chuyển callback thành promise, sử dugnj next(errors) or next
+
+                !!! Hàm render có thể nhận 2 tham số view: string, option: object vd: res.render('my_view', {my_object: some_object}) 
+                
+                        - xem docs của handlerbarsjs( có thể nói là bản cha của express-handerbar) https://handlebarsjs.com/
+
+                !!! đôi khi cần chuyển Mongoose doc thành plain object ????
+                
+                !!! với handler bars có lõi về bảo mật nên ko thể đọc đc qua this.attr => dùng lean() or theo F8
+                !!! thực hiện 1 query thì mongoose sẽ convert kết quả trả về từ POJOs( plain old js objects) thành mongoose document( bản ghi trong mongoose)
+                !!! thêm lean() sẽ skip bước này
+
+                !!!! khi nào nên dùng lean: kết quả trả về ko cần chuyển đổi
+                !!!! Nếu thay đổi kết quả -> không nên dùng: thay vào đó là dùng 
+                        myObject.toObject(): Converts this document into a plain-old JavaScript object (POJO).
+
+                        - sử dụng bootrap :))
+                !!! tạo thư mục util (helper) - công cụ : viết logic dạng công cụ giải quyết 1 số VĐ của vài toán

@@ -4,8 +4,8 @@ const siteRoute = express.Router();
 import SiteController from '../app/controllers/SiteController.js';
 const siteController = new SiteController();
 
-siteRoute.use('/sponsors', siteController.sponsors);
-siteRoute.use('/search', siteController.search);
-siteRoute.use('/', siteController.index);
+siteRoute.get('/sponsors', siteController.sponsors);
+siteRoute.get('/search', siteController.search);
+siteRoute.get('/', siteController.index);
 
 export default siteRoute;

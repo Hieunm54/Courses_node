@@ -1,5 +1,5 @@
 import mongoose from 'mongoose';
-import {MultiMongooseToObjects,SingleMongooseToObject} from '../../util/mongoose.js';
+import {MultiMongooseToObjects} from '../../util/mongoose.js';
 import Course from '../../model/Courses.js';
 
 class SiteController {

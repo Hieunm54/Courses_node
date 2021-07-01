@@ -13,6 +13,14 @@ db.connect();
 
 const app = express();
 
+// For parsing application/json
+app.use(express.json());
+// For parsing application/x-www-form-urlencoded
+app.use(express.urlencoded({
+    extended: true
+}));
+
+
 //HTTP logger middleware
 app.use(morgan('dev'));
 

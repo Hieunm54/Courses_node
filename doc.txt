@@ -60,13 +60,16 @@ I. HTTP protocol
                         vd: google.com/search?q=github&user=hieunm
                         - tạo trang search 
                         - sử dụng node dev tool = crtl + shift + i -> node symbol -> đặt break point
-                        !!! req.query : chứa thông tin về truy vấn, nên tận dụng
+
+                        !!! REQ.QUERY : chứa thông tin về truy vấn, nên tận dụng
+                        
                         - thường dùng vs GET để truyền dữ liệu
 
                 6. hành vi mặc định Form : tìm trên bootrap và tinh chỉnh lại
                         - form phải có input type, name( hành vi submit chỉ đính những input có attrbute là `name` lên thanh search) 
                         - form có method mắc định là GET -> có thẻ chỉnh bằng cách sửa method ='POST'
                         - action: submit ở đâu ( nếu để trông, sẽ vẫn ở tại trang, nếu thêm /new_route -> redirect sang trang mới và đính kèm param)
+                7. POST method 
                 
  *** Xây dựng website 
         I. Mô hình MVC:
@@ -128,3 +131,29 @@ I. HTTP protocol
 
                         - sử dụng bootrap :))
                 !!! tạo thư mục util (helper) - công cụ : viết logic dạng công cụ giải quyết 1 số VĐ của vài toán
+        
+        VI.2: Create course-detail -> create slug
+                1. tạo slug cho các khóa học (tạm thời làm bằng tay nhá)
+                2. thực hiện chuyển hướng cho các khóa hocj: thêm thẻ a để dẫn link khi ấn vào ảnh hay tên
+
+                !!! req.params chứa route param: VD user/:id, course/:slug  
+                !!! req.query: chứa url query. sau dấu ?: vd ?q=hieu
+
+                !!!  express cấm sử dụng `res.send(status, body)` -> dùng dấu + khi nối chuỗi
+                 
+                3. Taoj view chi tiet
+                 ** nhúng video vào web: chia sẻ -> nhúng -> lấy iframe
+                 + thêm video id
+
+        VII. Create new course 
+                B1 thêm route /course/create : để tạo khóa học ( để tránh bị hiểu là slug -> đơn gianr là cho lên đầu) 
+                B2 tạo view cho create course
+                        + dùng boostrap để  tạo view cho nhanh -> lấy form -> chỉnh method của form
+                        + req.body: data nhận đc từ form gửi từ client vs pt POST
+                B3 lưu đối tượng vào database bằng mongoose: model -> contructing model
+                        + cần chỉnh sửa model cho đúng các field để có thể lưu vào database
+                        (chỉnh sửa time theo cách mới, timestamp = true)
+                        + tạo ra img từ videoID
+                        ?? cách tạo slug -> mongoosejs slug generator
+                        + sau khi tạo thành công thì chuyển huowngs: đọc express API - 4.0 -> res.redirect
+                        ?? slug trùng nhau

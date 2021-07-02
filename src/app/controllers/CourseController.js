@@ -45,6 +45,13 @@ class CourseController{
 
     }
 
+    // [DELETE] /courses/:id
+    delete(req,res,next) {
+        Courses.deleteOne({_id: req.params.id})
+            .then(() => res.redirect('back')) // res.redirect('back') chuyển hướng về trang ban đầu
+            .catch(next)
+    }
+
     // [POST] /courses/store
     store(req, res,next) {
         console.log(req.body.videoID);

@@ -15,7 +15,9 @@ const Course = new Schema(
     videoID: { type: String},
     level: String
   },
-  { timestampe: true }
+  { 
+    timestamps: true 
+  }
 );
 
 // chú ý là Course(màu xanh lá cây) sẽ được chuyển thành courses(quy định của mongoose -> để ý đặt tên cho trùng)

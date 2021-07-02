@@ -3,6 +3,7 @@ import path from 'path';
 import morgan from 'morgan';
 import exphbs from 'express-handlebars';
 import db from './config/db/index.js';
+import methodOverride from 'method-override';
 
 
 import route from './routes/index.js';
@@ -27,6 +28,9 @@ app.use(morgan('dev'));
 //static assets
 // src/resource/public/assets
 app.use(express.static(path.join(__dirname, 'public')));
+
+//method override
+app.use(methodOverride('_method'));
 
 //handlebars middleware
 app.engine('.hbs', exphbs({ extname: '.hbs' }));

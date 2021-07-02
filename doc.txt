@@ -157,3 +157,10 @@ I. HTTP protocol
                         ?? cách tạo slug -> mongoosejs slug generator
                         + sau khi tạo thành công thì chuyển huowngs: đọc express API - 4.0 -> res.redirect
                         ?? slug trùng nhau
+        
+        VIII> Update course
+                B1: tạo view riêng cho phần quản lý khóa học 
+                        + chỉnh sửa nav bảr bằng boostrap
+                        + đọc doc handlerbars và express-handlerbars để chỉnh lỗi index
+
+                !!! form chỉ nhận GET or POST -> phải override method bằng cách đọc docs express/resources 

@@ -27,6 +27,24 @@ class CourseController{
         res.render('courses/create');
     }
 
+    // [GET] /courses/:id/edit 
+    edit(req, res,next) {
+        Courses.findOne({_id: req.params.id})
+            .then(course => res.render('courses/update',{
+                course: SingleMongooseToObject(course)
+            }))
+            .catch(next);
+        
+    }
+
+    // [PUT] /courses/:id
+    update(req, res,next){
+        Courses.updateOne({_id: req.params.id},req.body)
+            .then(() => res.redirect('/me/stored/courses'))
+            .catch(next);
+
+    }
+
     // [POST] /courses/store
     store(req, res,next) {
         console.log(req.body.videoID);
@@ -35,10 +53,10 @@ class CourseController{
         const course = new Courses(dataForm);
         course.save()
         .then(() => res.redirect('/'))
-        .catch(err => next(err))
-        
-
+        .catch(err => next(err))      
     }
+
+
 
 }
 
